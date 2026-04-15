@@ -1,0 +1,46 @@
+.footer-container {
+    background-color: #003300; /* Dark Green Background */
+    color: #ffffff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between text, icons, and copyright */
+}
+
+.contact-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Space between icons */
+    margin: 10px 0;
+}
+
+.social-icon {
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #cccccc; /* Subtle hover effect */
+}
+
+.copyright-text {
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0.8; /* Makes the copyright text slightly dimmer */
+}

@@ -1,0 +1,131 @@
+/* The container that holds the entire grid */
+.quad-background-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  grid-template-rows: 1fr 1fr;    /* Two equal-height rows */
+  width: 100%;
+  height: 100vh; /* Full screen height. Change to 100% if it's within a specific section. */
+  gap: 0; /* Ensures there are no gaps between the grid items themselves */
+}
+
+/* Base styles for each individual image segment */
+.grid-segment {
+  background-size: cover;        /* Makes image fill the area without stretching */
+  background-position: center;   /* Centers the image */
+  background-repeat: no-repeat;
+  position: relative;            /* Needed for the overlay and border placement */
+}
+
+/* Optional: Add a dark overlay to make top content (text) pop */
+.grid-segment::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* 40% dark overlay */
+}
+
+/* Add the green divider lines */
+.grid-segment:nth-child(1), /* Top Left */
+.grid-segment:nth-child(2) { /* Top Right */
+  border-bottom: 2px solid green; /* Horizontal divider */
+}
+
+.grid-segment:nth-child(1), /* Top Left */
+.grid-segment:nth-child(3) { /* Bottom Left */
+  border-right: 2px solid green;  /* Vertical divider */
+}
+
+/* Login Form Container Overlay */
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 40px 35px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+  width: 380px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginImg {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 30px auto;
+    display: block;
+}
+
+/* Form Groups */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.input-field {
+    padding: 12px 14px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.input-field:focus {
+    border-color: #28a745;
+}
+
+/* Checkbox Row */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.checkbox-row label {
+    cursor: pointer;
+}
+
+/* Submit button */
+.submit-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #AFAFAF; 
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #999;
+}
