@@ -23,12 +23,9 @@ const LoginPage = () => {
         event.preventDefault()
         const userDetails={username,password}
         console.log(userDetails)
-        const url="http://localhost:5000/login"
+        const url="https://apis.ccbp.in/login"
         const options={
             method:"POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
             body:JSON.stringify(userDetails)
         }
         const response=await fetch(url,options)
@@ -42,31 +39,31 @@ const LoginPage = () => {
         }
     }
 
-    const handleRegister=async (event)=>{
-        event.preventDefault()
-        const userDetails={username,password}
-        const url="http://localhost:5000/register"
-        const options={
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body:JSON.stringify(userDetails)
-        }
-        try {
-            const response=await fetch(url,options)
-            const data=await response.json()
-            if(response.ok){
-                alert(data.message);
-                setErrorMsg("")
-            }
-            else{
-                onSubmitFailure(data.message || data.error_msg)
-            }
-        } catch (error) {
-            onSubmitFailure("Network error during registration")
-        }
-    }
+    // const handleRegister=async (event)=>{
+    //     event.preventDefault()
+    //     const userDetails={username,password}
+    //     const url="http://localhost:5000/register"
+    //     const options={
+    //         method:"POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body:JSON.stringify(userDetails)
+    //     }
+    //     try {
+    //         const response=await fetch(url,options)
+    //         const data=await response.json()
+    //         if(response.ok){
+    //             alert(data.message);
+    //             setErrorMsg("")
+    //         }
+    //         else{
+    //             onSubmitFailure(data.message || data.error_msg)
+    //         }
+    //     } catch (error) {
+    //         onSubmitFailure("Network error during registration")
+    //     }
+    // }
 
     const token=Cookies.get("jwt_Token")
     if(token!==undefined){
@@ -111,7 +108,6 @@ const LoginPage = () => {
                     
                     <div style={{display: 'flex', gap: '10px'}}>
                         <button className="submit-btn" type="submit" style={{flex: 1}}>Login</button>
-                        <button className="submit-btn" type="button" onClick={handleRegister} style={{flex: 1, backgroundColor: '#4a4a4a'}}>Register</button>
                     </div>
                     {errormsg && <p style={{color: "red", fontSize: "14px", marginTop: "10px", textAlign: "center"}}>*{errormsg}</p>}
                 </form>
